@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import './index.css'
+import smoke from './audios/smoke.mp4'
+import mobile from './audios/mobile.mp4'
 
-function App() {
+
+
+
+const Player = () => {
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
+
+  const updateMedia = () => {
+    setDesktop(window.innerWidth > 800);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isDesktop ? (
+        <video autoPlay loop muted className="bg-vid">
+        <source  src={smoke} type="video/mp4" />
+       </video> ) : (
+         <video autoPlay loop muted className="bg-vid">
+        <source  src={mobile} type="video/mp4" /> 
+       </video>
+          )
+      }
     </div>
   );
 }
-
-export default App;
+export default Player;
