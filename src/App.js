@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import './index.css'
-import smoke from './audios/smoke.mp4'
-import mobile from './audios/mobile.mp4'
-
-
-
+import "./index.css";
+import smoke from "../src/assets/Apes.mp4";
+import mobile from "../src/assets/Apes epic video mobile.mp4";
 
 const Player = () => {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
@@ -22,14 +19,14 @@ const Player = () => {
     <div>
       {isDesktop ? (
         <video autoPlay loop muted className="bg-vid">
-        <source  src={smoke} type="video/mp4" />
-       </video> ) : (
-         <video autoPlay loop muted className="bg-vid">
-        <source  src={mobile} type="video/mp4" /> 
-       </video>
-          )
-      }
+          <source src={smoke} type="video/mp4" />
+        </video>
+      ) : (
+        <video autoPlay loop muted className="bg-vid">
+          <source src={mobile} type="video/mp4" />
+        </video>
+      )}
     </div>
   );
-}
+};
 export default Player;
