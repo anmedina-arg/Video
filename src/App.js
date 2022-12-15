@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./index.css";
-import smoke from "../src/assets/Apes.mp4";
-import mobile from "../src/assets/Apes epic video mobile.mp4";
+import videoWeb from "../src/assets/Apes_web.mp4";
+import mobile from "../src/assets/Apes_mobile.mp4";
 
 const Player = () => {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
@@ -28,7 +28,7 @@ const Player = () => {
     <div>
       {isDesktop ? (
         <video ref={ref} autoPlay muted loop className="bg-vid">
-          <source src={smoke} type="video/mp4" />
+          <source src={videoWeb} type="video/mp4" />
         </video>
       ) : (
         <video ref={ref} autoPlay muted loop className="bg-vid">
