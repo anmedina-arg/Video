@@ -28,12 +28,10 @@ const Player = () => {
     <div>
       {isDesktop ? (
         <video ref={ref} autoPlay muted loop className="bg-vid">
-          {/* <source src={videoWeb} type="video/webm" /> */}
           <source src={videoWeb} type="video/mp4" />
         </video>
       ) : (
-        <video ref={ref} autoPlay muted loop className="bg-vid">
-          {/* <source src={mobile} type="video/webm" /> */}
+        <video ref={ref} autoPlay playsInline muted loop className="bg-vid">
           <source src={mobile} type="video/mp4" />
         </video>
       )}
