@@ -1,13 +1,64 @@
-.bg-vid { 
-  position: fixed;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+* {
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.bg-vid {
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  border: none;
   box-sizing: border-box;
 }
 
+.controls_container {
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 2rem;
+  height: 50px;
+  width: 100vw;
+  justify-content: space-between;
+}
+
+.volume_container,
+.replay_container {
+  color: rgb(220, 215, 215);
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.volume_container {
+  padding-left: 2rem;
+}
+
+.replay_container {
+  padding-right: 2rem;
+}
+
+.icon_text {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.icon {
+  height: 2rem;
+  width: 2rem;
+  /* box-shadow: 1px 1px 2px #000; */
+  /* text-shadow: 1px 1px 2px #000; */
+  filter: drop-shadow(1px 1px 2px #000);
+}
 /* .responsiveWeb{
   display: block;
 }
