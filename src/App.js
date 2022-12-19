@@ -3,8 +3,9 @@ import "./index.css";
 import videoWeb from "../src/assets/Apes_web.mp4";
 import mobile from "../src/assets/Apes_mobile.mp4";
 
-const Player = () => {
+export const Player = () => {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
+  const [pause, setPause] = useState(false)
 
   const [activeSuond, setActiveSound] = useState(false);
 
@@ -24,14 +25,24 @@ const Player = () => {
     setActiveSound(!activeSuond);
   };
 
+  function handlePause(){
+    if(pause){
+      ref.current.play();
+      setPause(!pause)
+    }else{
+      ref.current.pause();
+      setPause(!pause)
+    }
+  }
+
   return (
     <div>
       {isDesktop ? (
-        <video ref={ref} autoPlay muted loop className="bg-vid">
+        <video ref={ref} onClick={handlePause} autoPlay muted loop className="bg-vid">
           <source src={videoWeb} type="video/mp4" />
         </video>
       ) : (
-        <video ref={ref} autoPlay playsInline muted loop className="bg-vid">
+        <video ref={ref} onClick={handlePause} autoPlay playsInline muted loop className="bg-vid">
           <source src={mobile} type="video/mp4" />
         </video>
       )}
@@ -103,4 +114,3 @@ const Player = () => {
     </div>
   );
 };
-export default Player;
