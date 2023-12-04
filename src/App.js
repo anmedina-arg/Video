@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./index.css";
-import videoWeb from "../src/assets/Apes_web.mp4";
-import mobile from "../src/assets/Apes_mobile.mp4";
+import videoWeb from "../src/assets/Apes_web.webm";
+import mobile from "../src/assets/Apes_mobile.webm";
 
 export const Player = () => {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
